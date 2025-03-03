@@ -1,29 +1,31 @@
 //requires
 const express = require('express');
 const multer = require('multer');
+const cors = require('cors');
 const path = require('path');
 require('dotenv').config()
 
 //basic configurations
 const app = express();
 app.use('/public', express.static(process.cwd() + '/public'));
-
+app.use(cors());
 app.get('/', function (req, res) {
   res.sendFile(process.cwd() + '/views/index.html');
 });
 
 
-// Configure multer to store files with original names
+// Configure multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'uploads/'); // save in 'uploads/' folder
   },
   filename: (req, file, cb) => {
     const timestamp = new Date();
-    const timestring = timestamp.toDateString();
+    const timestring = timestamp.toISOString().replace(/:/g, '-');
     const extname = path.extname(file.originalname);
     const basename = path.basename(file.originalname, extname);
-    cb(null, `${basename}-${timestring}${extname}`); // use the original file name
+    const newFilename = `${basename}-${timestring}${extname}`;
+    cb(null, newFilename);
   }
 });
 const upload = multer({ storage: storage });
