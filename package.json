@@ -4,15 +4,19 @@
   "description": "API project for freeCodeCamp",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.21.2",
     "fs": "^0.0.1-security",
+    "mongoose": "^8.12.1",
     "multer": "^1.4.5-lts.1",
-    "path": "^0.12.7"
+    "parcel-bundler": "^1.12.5",
+    "path": "^0.12.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "repository": {
     "type": "git",

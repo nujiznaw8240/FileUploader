@@ -2,33 +2,32 @@
 
 <html>
    <head>
-      <title>File Metadata</title>
-      <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png" type="image/x-icon"/>
+      <title>File Upload and Download</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="UTF-8">
+      <link rel="shortcut icon" href="/public/myself.jpg" type="image/x-icon"/>
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
       <link href="/public/style.css" rel="stylesheet" type="text/css">
    </head>
 
    <body>
-      <div class="container">
-        <h1>API Project: File Metadata Microservice</h1>
-
-        <h2>Usage:</h2>
-        <p>
-          Please Upload a File ...
-        </p>
-        <div class="view">
-          <h3 id="output"></h3>
-          <form enctype="multipart/form-data" method="POST" action="/api/fileanalyse">
-            <input id="inputfield" type="file" name="upfile">
-            <input id="button" type="submit" value="Upload">
-          </form>
-        </div>
+      <div class="title">
+        <h1>API Project: File Upload and Download</h1>
+        <h4>Please upload text files like txt...</h4>
       </div>
+
+      <div id="root"></div>
+
       <div class="footer">
         <p>
-          by 
-          <a href="http://www.freecodecamp.com">freeCodeCamp</a>
+          by <a href="https://github.com/nujiznaw8240">nujiznaw8240</a>
         </p>
       </div>
+
+      <!-- Use react 18 -->
+      <!-- <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+      <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+
+      <script src="/public/react-bundle.js"></script>
    </body>
 </html>
