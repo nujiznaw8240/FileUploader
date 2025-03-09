@@ -94,7 +94,12 @@ app.delete('/api/filedelete', upload.none(), async (req, res) => {
   } catch (err) {
     console.error('Error during file deletion:', err);
     if (err.code === 'ENOENT') {
-      return res.status(404).json({ error: 'File not found' });
+      try {
+        await File.findOneAndDelete({ name: filename });
+      } catch (err) {
+        res.status(500).json({ error: 'Failed to delete the non-existent file from mongoose'})
+      }
+      return res.json({deletedName: filename});
     }
     res.status(500).json({ error: 'Failed to delete the file' });
   }
